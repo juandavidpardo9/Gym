@@ -10,12 +10,21 @@ package Logica;
  * @author david
  */
 public class TipoDeCliente implements Rutinas{
+
     
+    
+    int id ;
     private String Nombre;
     private String Edad;
     private String Peso;
     private String Altura;
     
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
+    }    
 
     public String getAltura() {
         return Altura;

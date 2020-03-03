@@ -1,0 +1,12 @@
+create database `Gimnasio`;
+use Gimnasio;
+
+create table Datos(
+ `id` int(11) NOT NULL auto_increment COMMENT 'identificador del usuario',
+  `Nombre` varchar(30) NOT NULL COMMENT 'nombre del usuario', 
+  `Edad` varchar(15) NOT NULL COMMENT 'edad del usuario',
+  `Peso` Float(15) NOT NULL COMMENT 'peso del usuario',
+  `Altura` Float(20) NOT NULL COMMENT 'altura del usuario',
+PRIMARY KEY  (`id`)
+) ENGINE=InnoDB;
+INSERT INTO `Datos` VALUES (1,'Juan','19','55','1.80');

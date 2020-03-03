@@ -5,8 +5,9 @@
  */
 package datos;
 
+import Server.DBConexion;
 import java.sql.*;
-import logica.Contacto;
+import Logica.TipoDeCliente;
 
 public class DBContactos {
 
@@ -17,17 +18,14 @@ public class DBContactos {
     }
 
     public ResultSet getContactoById(int id) throws SQLException {
-        PreparedStatement pstm = cn.getConexion().prepareStatement("SELECT con_id, "
-                + " con_nombre, "
-                + " con_apellido, "
-                + " con_telefono_domicilio, "
-                + " con_telefono_oficina,"
-                + " con_celular, "
-                + " con_correo, "
-                + " con_direccion_residencia,"
-                + " con_direccion_trabajo "
-                + " FROM contactos "
-                + " WHERE con_id = ? ");
+        PreparedStatement pstm = cn.getConexion().prepareStatement("SELECT id, "
+                + " Nombre, "           
+                + " Edad, "
+                + " Peso,"
+                + " Altura "
+                + " con_correo, "              
+                + " FROM Datos "
+                + " WHERE id = ? ");
         pstm.setInt(1, id);
 
         ResultSet res = pstm.executeQuery();
@@ -43,41 +41,53 @@ public class DBContactos {
      */
     public ResultSet getContactos() throws SQLException {
         PreparedStatement pstm = cn.getConexion().prepareStatement("SELECT con_id, "
-                + " con_nombre, "
-                + " con_apellido, "
-                + " con_telefono_domicilio, "
-                + " con_telefono_oficina,"
-                + " con_celular, "
-                + " con_correo, "
-                + " con_direccion_residencia,"
-                + " con_direccion_trabajo "
-                + " FROM contactos "
-                + " ORDER BY con_nombre, con_apellido ");
+                + " Nombre, "             
+                + " Edad, "
+                + " Peso,"
+                + " Altura "             
+                + " FROM Datos "
+                + " ORDER BY Nombre,Apellido");
 
 
         ResultSet res = pstm.executeQuery();
         return res;
     }
 
-    public void insertarContacto(Contacto c) {
+    public void insertarContacto(TipoDeCliente c) {
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into contactos (con_nombre, "
-                    + " con_apellido,"
-                    + " con_telefono_domicilio,"
-                    + " con_telefono_oficina,"
-                    + " con_celular,"
-                    + " con_correo,"
-                    + " con_direccion_residencia,"
-                    + " con_direccion_trabajo) "
-                    + " values(?,?,?,?,?,?,?,?)");
-            pstm.setString(1, c.getNombre());
-            pstm.setString(2, c.getApellido());
-            pstm.setString(3, c.getTelefonoDomicilio());
-            pstm.setString(4, c.getTelefonoOficina());
-            pstm.setString(5, c.getCelular());
-            pstm.setString(6, c.getCorreo());
-            pstm.setString(7, c.getDireccionResidencia());
-            pstm.setString(8, c.getDireccionTrabajo());
+            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into Datos (Nombre, "
+                   
+                    + " Edad,"
+                    + " Peso,"
+                    + " Altura"                   
+                    + " values(?,?,?,?)");
+            pstm.setString(1, c.getNombre());           
+            pstm.setString(2, c.getEdad());
+            pstm.setString(3, c.getPeso());
+            pstm.setString(4, c.getAltura());
+           
+            pstm.executeUpdate();
+
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public void actualizarContacto(TipoDeCliente c) {
+
+        try {
+            PreparedStatement pstm = cn.getConexion().prepareStatement("update Datos set Nombre = ?, "                   
+                    + " Edad = ?,"
+                    + " Peso = ?,"
+                    + " Altura = ?"                  
+                    + " where id = ?");
+            pstm.setString(1, c.getNombre());           
+            pstm.setString(2, c.getEdad());
+            pstm.setString(3, c.getPeso());
+            pstm.setString(4, c.getAltura());           
+            pstm.setInt(5, c.getId());
 
             pstm.executeUpdate();
 
@@ -88,42 +98,11 @@ public class DBContactos {
 
     }
 
-    public void actualizarContacto(Contacto c) {
+    public void borrarContacto(TipoDeCliente c) {
 
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("update contactos set con_nombre = ?, "
-                    + " con_apellido = ?,"
-                    + " con_telefono_domicilio = ?,"
-                    + " con_telefono_oficina = ?,"
-                    + " con_celular = ?,"
-                    + " con_correo = ?,"
-                    + " con_direccion_residencia = ?,"
-                    + " con_direccion_trabajo = ? "
-                    + " where con_id = ?");
-            pstm.setString(1, c.getNombre());
-            pstm.setString(2, c.getApellido());
-            pstm.setString(3, c.getTelefonoDomicilio());
-            pstm.setString(4, c.getTelefonoOficina());
-            pstm.setString(5, c.getCelular());
-            pstm.setString(6, c.getCorreo());
-            pstm.setString(7, c.getDireccionResidencia());
-            pstm.setString(8, c.getDireccionTrabajo());
-            pstm.setInt(9, c.getId());
-
-            pstm.executeUpdate();
-
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-
-    }
-
-    public void borrarContacto(Contacto c) {
-
-        try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("delete from contactos "
-                    + " where con_id = ?");
+            PreparedStatement pstm = cn.getConexion().prepareStatement("delete from Datos "
+                    + " where id = ?");
 
             pstm.setInt(1, c.getId());
 
