@@ -34,16 +34,16 @@ public class CargarContacto extends HttpServlet {
         TipoDeCliente c = new TipoDeCliente();
         DBContactos conDB = new DBContactos();
         try {
-            int conId = Integer.parseInt(request.getParameter("item"));
-            String opc = request.getParameter("op");
-            out.write(opc);
-            ResultSet res = conDB.getContactoById(conId);
-            if(res.next()){
-                c.setId(res.getInt("id"));
-                c.setNombre(res.getString("Nombre"));
-                c.setEdad(res.getString("Apellido"));
-                c.setPeso(res.getString("Edad"));
-                c.setAltura(res.getString("Altura"));
+                int id = Integer.parseInt(request.getParameter("item"));
+                 String opc = request.getParameter("op");
+                out.write(opc);
+                ResultSet res = conDB.getContactoById(id);
+                 if(res.next()){
+                    c.setId(res.getInt("id"));
+                    c.setNombre(res.getString("Nombre"));
+                    c.setEdad(res.getString("Apellido"));
+                    c.setPeso(res.getString("Edad"));
+                    c.setAltura(res.getString("Altura"));
                 
             }
             

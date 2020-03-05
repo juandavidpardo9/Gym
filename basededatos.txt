@@ -9,4 +9,4 @@ create table Datos(
   `Altura` Float(20) NOT NULL COMMENT 'altura del usuario',
 PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB;
-INSERT INTO `Datos` VALUES (1,'Juan','19','55','1.80');
+INSERT INTO `Datos` VALUES ('1','Juan','19','55','1.80');

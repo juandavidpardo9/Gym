@@ -19,7 +19,7 @@
                 
 		<input step="any" type="text" name="Peso" id="Peso" placeholder="Peso(Kg)" ></input>
                 <input step="any" type="text" name="Altura" id="Altura" placeholder="Altura(Mts)" ></input>
-                <input type="submit" value="Evaluar" onclick="return validar()">
+                <input type="submit" value="Evaluar" onclick="return validar()" href="insertar_contacto.jsp">
         </form>      
     </body>
 </html>

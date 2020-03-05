@@ -5,7 +5,7 @@
  */
 package datos;
 
-import Server.DBConexion;
+
 import java.sql.*;
 import Logica.TipoDeCliente;
 
@@ -22,8 +22,7 @@ public class DBContactos {
                 + " Nombre, "           
                 + " Edad, "
                 + " Peso,"
-                + " Altura "
-                + " con_correo, "              
+                + " Altura "                           
                 + " FROM Datos "
                 + " WHERE id = ? ");
         pstm.setInt(1, id);
@@ -40,13 +39,13 @@ public class DBContactos {
      * trae todos los registros de la tabla contactos
      */
     public ResultSet getContactos() throws SQLException {
-        PreparedStatement pstm = cn.getConexion().prepareStatement("SELECT con_id, "
+        PreparedStatement pstm = cn.getConexion().prepareStatement("SELECT id, "
                 + " Nombre, "             
                 + " Edad, "
                 + " Peso,"
                 + " Altura "             
                 + " FROM Datos "
-                + " ORDER BY Nombre,Apellido");
+                + " ORDER BY Nombre,Edad");
 
 
         ResultSet res = pstm.executeQuery();

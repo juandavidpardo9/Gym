@@ -14,10 +14,14 @@ public class TipoDeCliente implements Rutinas{
     
     
     int id ;
-    private String Nombre;
-    private String Edad;
-    private String Peso;
-    private String Altura;
+     String Nombre;
+     String Edad;
+     String Peso;
+     String Altura;
+    
+    public TipoDeCliente(){
+    
+}
     
     public void setId(int id) {
         this.id = id;

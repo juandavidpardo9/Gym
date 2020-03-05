@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td>Edad</td>
-                <td><input type="text" id="txtApellido" name="txtEdad" value="<%= ((TipoDeCliente)session.getAttribute("TipoDeCliente")).getEdad() %>"></td>
+                <td><input type="text" id="txtEdad" name="txtEdad" value="<%= ((TipoDeCliente)session.getAttribute("TipoDeCliente")).getEdad() %>"></td>
             </tr>
             <tr>
                 <td>Peso</td>

@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td>Edad</td>
-                <td><input type="text" id="txtEdad" name="txtApellido"></td>
+                <td><input type="text" id="txtEdad" name="txtEdad"></td>
             </tr>
             <tr>
                 <td>Peso</td>
