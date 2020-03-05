@@ -10,7 +10,7 @@
     </head>
     <body>
         <script src="javascript.js"></script>
-        <form class="box" method="get" action="Servidor">
+        <form class="box" method="get" >
 
             <h1>Completa los datos</h1>
 		<input type="text" name="Nombre" id="Nombre" placeholder="Nombre"></input>

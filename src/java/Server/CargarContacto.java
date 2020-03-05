@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Logica.TipoDeCliente;
+import javax.servlet.annotation.WebServlet;
 
 /**
  *
  * @author Alejo
  */
+@WebServlet(name="CargarContacto", urlPatterns=("/CargarContacto"))
+
 public class CargarContacto extends HttpServlet {
 
     /** 
@@ -41,14 +44,14 @@ public class CargarContacto extends HttpServlet {
                  if(res.next()){
                     c.setId(res.getInt("id"));
                     c.setNombre(res.getString("Nombre"));
-                    c.setEdad(res.getString("Apellido"));
-                    c.setPeso(res.getString("Edad"));
+                    c.setEdad(res.getString("Edad"));
+                    c.setPeso(res.getString("Peso"));
                     c.setAltura(res.getString("Altura"));
                 
             }
             
             if(opc.equals("edit")){
-                request.getSession().setAttribute("TipoDeCliente", c);
+                request.getSession().setAttribute("Datos", c);
                 response.sendRedirect("editar_contacto.jsp");
             }
             if(opc.equals("delete")){

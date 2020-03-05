@@ -9,7 +9,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<% ResultSet TipoDeCliente = (ResultSet)session.getAttribute("TipoDeCliente"); %>
+<% ResultSet Datos = (ResultSet)session.getAttribute("Datos"); %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,16 +23,16 @@
             <tr>
                 <th>codigo</th><th>nombre</th><th>Edad</th><th>Peso</th><th>Altura</th><th>Acciones</th>
             </tr>
-                <% while (TipoDeCliente.next()){ %>
+                <% while (Datos.next()){ %>
                     <tr>
-                        <td><%= TipoDeCliente.getString("id") %></td>
-                        <td><%= TipoDeCliente.getString("Nombre") %></td>
-                        <td><%= TipoDeCliente.getString("Edad") %></td>
-                        <td><%= TipoDeCliente.getString("Peso") %></td>
-                        <td><%= TipoDeCliente.getString("Altura") %></td>
+                        <td><%= Datos.getString("id") %></td>
+                        <td><%= Datos.getString("Nombre") %></td>
+                        <td><%= Datos.getString("Edad") %></td>
+                        <td><%= Datos.getString("Peso") %></td>
+                        <td><%= Datos.getString("Altura") %></td>
                         <td class="links">
-                            <a href="CargarContacto?op=edit&item=<%= TipoDeCliente.getString("id") %>">Editar</a>
-                            <a href="CargarContacto?op=delete&item=<%= TipoDeCliente.getString("id") %>">Borrar</a>
+                            <a href="CargarContacto?op=edit&item=<%= Datos.getString("id") %>">Editar</a>
+                            <a href="CargarContacto?op=delete&item=<%= Datos.getString("id") %>">Borrar</a>
                         </td>
                     </tr>
                 <% }%>

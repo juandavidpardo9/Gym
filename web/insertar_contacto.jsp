@@ -11,29 +11,30 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Nuevo Contacto</title>
         <script src='validar.jsp' language='JavaScript1.2'></script>
-        <link href='diseno.css' rel='stylesheet' type='text/css'>
+        <link href="./Estilos/Estilo.css" rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <form id="frmInsertarContacto" action="InsertarContacto" method="POST">
+        <form id="frmInsertarContacto" class="box" action="Servidor" method="POST">
         <table>
             <tr>
-                <td>Nombre</td>
-                <td><input type="text" id="txtNombre" name="txtNombre"></td>
+               <h1>Completa los datos</h1>
+                <td><input type="text" id="Nombre" name="Nombre" placeholder="Nombre"></td>
             </tr>
             <tr>
-                <td>Edad</td>
-                <td><input type="text" id="txtEdad" name="txtEdad"></td>
+                
+                <td><input type="text" id="Edad" name="Edad"  placeholder="    Edad" min="0" max="100"></td>
             </tr>
             <tr>
-                <td>Peso</td>
-                <td><input type="text" id="txtPeso" name="txtPeso"></td>
+                
+                <td><input type="text" id="Peso" name="Peso"placeholder="Peso(Kg)"></td>
             </tr>
             <tr>
-                <td>Altura</td>
-                <td><input type="text" id="txtAltura" name="txtAltura"></td>
+                
+                <td><input type="text" id="Altura" name="Altura" placeholder="Altura(Mts)"></td>
             </tr>           
             <tr>
-                <td colspan="2"><input type="button" value="Aceptar" onclick="submit();"></td>
+            <td colspan="2">
+                    <input type="submit" value="Evaluar" onclick="return validar()" >
             </tr>
             
         </table>

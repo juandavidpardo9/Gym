@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Logica.TipoDeCliente;
+import javax.servlet.annotation.WebServlet;
 
 /**
  *
  * @author Alejo
  */
+@WebServlet(name="InsertarContacto", urlPatterns=("/InsertarContacto"))
+
 public class InsertarContacto extends HttpServlet {
 
     /** 
@@ -33,11 +36,11 @@ public class InsertarContacto extends HttpServlet {
         TipoDeCliente c = new TipoDeCliente();
         DBContactos conDb = new DBContactos();
         try {
-            c.setNombre(request.getParameter("txtNombre"));
-            c.setEdad(request.getParameter("txtEdad"));
+            c.setNombre(request.getParameter("Nombre"));
+            c.setEdad(request.getParameter("Edad"));
             
-            c.setPeso(request.getParameter("txtPeso"));
-            c.setAltura(request.getParameter("txtAltura"));            
+            c.setPeso(request.getParameter("Peso"));
+            c.setAltura(request.getParameter("Altura"));            
             
             conDb.insertarContacto(c);
             

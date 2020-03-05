@@ -16,23 +16,23 @@
     </head>
     <body>
          <form id="frmActualizarContacto" action="ActualizarContacto" method="POST">
-             <input type="hidden" id="txtId" name="txtId" value="<%= ((TipoDeCliente)session.getAttribute("TipoDeCliente")).getId() %>">
+             <input type="hidden" id="id" name="id" value="<%= ((TipoDeCliente)session.getAttribute("Datos")).getId() %>">
         <table>
             <tr>
                 <td>Nombre</td>
-                <td><input type="text" id="txtNombre" name="txtNombre" value="<%= ((TipoDeCliente)session.getAttribute("TipoDeCliente")).getNombre() %>"></td>
+                <td><input type="text" id="Nombre" name="Nombre" value="<%= ((TipoDeCliente)session.getAttribute("Datos")).getNombre() %>"></td>
             </tr>
             <tr>
                 <td>Edad</td>
-                <td><input type="text" id="txtEdad" name="txtEdad" value="<%= ((TipoDeCliente)session.getAttribute("TipoDeCliente")).getEdad() %>"></td>
+                <td><input type="text" id="Edad" name="Edad" value="<%= ((TipoDeCliente)session.getAttribute("Datos")).getEdad() %>"></td>
             </tr>
             <tr>
                 <td>Peso</td>
-                <td><input type="text" id="txtPeso" name="txtPeso" value="<%= ((TipoDeCliente)session.getAttribute("TipoDeCliente")).getPeso() %>"></td>
+                <td><input type="text" id="Peso" name="Peso" value="<%= ((TipoDeCliente)session.getAttribute("Datos")).getPeso() %>"></td>
             </tr>
             <tr>
                 <td>Altura</td>
-                <td><input type="text" id="txtAltura" name="txtAltura" value="<%= ((TipoDeCliente)session.getAttribute("TipoDeCliente")).getAltura() %>"></td>
+                <td><input type="text" id="Altura" name="Altura" value="<%= ((TipoDeCliente)session.getAttribute("Datos")).getAltura() %>"></td>
             </tr>                       
         </table>
         </form>

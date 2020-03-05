@@ -14,11 +14,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Logica.*;
+import javax.servlet.annotation.WebServlet;
 
 /**
  *
  * @author alejandro
  */
+@WebServlet(name="Inicio", urlPatterns=("/Inicio"))
 public class Inicio extends HttpServlet {
 
     /** 
@@ -36,7 +38,7 @@ public class Inicio extends HttpServlet {
         try {
             ResultSet res = conDb.getContactos();
             
-            request.getSession().setAttribute("TipoDeCliente", res);
+            request.getSession().setAttribute("Datos", res);
             response.sendRedirect("index.jsp");
         }catch(Exception e){
             
