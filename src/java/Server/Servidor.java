@@ -132,19 +132,21 @@ public class Servidor extends HttpServlet {
             out.println("<link rel='stylesheet' type='text/css' "
                     + "href='./Estilos/style.css'>");
             out.println("</head>");            
-            out.println("<body>");
+            out.println("<body>");          
             out.println("<div class='container'>");
             out.println("<div class='box'>");
             out.println("<div class='content'>");
             out.println("<h2>" + "" + "</h2>");
             out.println("<h3>" + "Cliente" +"</h3>");
-            out.println("<p>" +"Nombre: "+ c.getNombre()+"</p> ");
-            out.println("<p>" +"Edad: "+ c.getEdad()+"</p> ");
-            out.println("<p>" +"Peso: "+a+"</p> ");
-            out.println("<p>" +"Altura: "+b+"</p> ");
+            out.println("<form action='InsertarContacto' id='frmInsertarContacto' method='POST'>");
+            out.println("<p>"+"Nombre:"+"<input class='sinborde' type='text' readonly id='Nombre' name='Nombre' value="+c.getNombre()+"></p><br> ");            
+            out.println("<p>"+"Edad:"+"<input class='sinborde' type='text' readonly id='Edad' name='Edad' value="+c.getEdad()+"></p><br>");
+            out.println("<p>"+"Peso:"+"<input class='sinborde' type='text' readonly id='Peso' name='Peso' value="+a+"></p><br> ");
+            out.println("<p>"+"Altura:"+"<input class='sinborde' type='text' readonly id='Altura' name='Altura' value="+b+"></p><br> ");        
             out.println("<p>"+"Su indice de masa corporal es: "+df.format(IMC)+" "+condicion+"<br>"+ acondicionamiento+"</p>");
             out.println("<p><b>"+"Realice estos ejercicios por 4 días y el dia 5 es de descanso luego vuelva a comenzar el ciclo."+"</p></b>");
-            out.println("<a href='#'>" + "Leer más" + "</a>");
+            out.println("<a><input type='submit' value='VER OTROS CLIENTES'></a>");
+            
             out.println("</div>");
             out.println("</div>");            
             out.println("<div class='box'>");
@@ -182,6 +184,7 @@ public class Servidor extends HttpServlet {
             out.println("</div>");
             out.println("</div>");
             out.println("</div>");
+            out.println("</form>");
             out.println("</body>");
            
             out.println("</html>");

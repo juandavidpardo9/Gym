@@ -10,33 +10,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Nuevo Contacto</title>
-        <script src='validar.jsp' language='JavaScript1.2'></script>
-        <link href='diseno.css' rel='stylesheet' type='text/css'>
+        <script  src='javascript.js' language='JavaScript1.2'></script>
+        <link href="./Estilos/Estilo.css" rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <form id="frmInsertarContacto" action="InsertarContacto" method="POST">
-        <table>
-            <tr>
-                <td>Nombre</td>
-                <td><input type="text" id="txtNombre" name="txtNombre"></td>
-            </tr>
-            <tr>
-                <td>Edad</td>
-                <td><input type="text" id="txtEdad" name="txtEdad"></td>
-            </tr>
-            <tr>
-                <td>Peso</td>
-                <td><input type="text" id="txtPeso" name="txtPeso"></td>
-            </tr>
-            <tr>
-                <td>Altura</td>
-                <td><input type="text" id="txtAltura" name="txtAltura"></td>
-            </tr>           
-            <tr>
-                <td colspan="2"><input type="button" value="Aceptar" onclick="submit();"></td>
-            </tr>
+        <form id="frmInsertarContacto" class="box" action="Servidor" method="POST">
+        
             
-        </table>
+               <h1>Completa los datos</h1>
+               <input type="text" id="Nombre" name="Nombre" placeholder="Nombre">           
+                
+               <input type="number" id="Edad" name="Edad"  placeholder="Edad" min="0" max="100">
+            
+               <input step="any" type="text" id="Peso" name="Peso"placeholder="Peso(Kg)">           
+                
+               <input step="any" type="text" id="Altura" name="Altura" placeholder="Altura(Mts)">           
+          
+               <input type="submit" value="Evaluar" onclick="validar(); " >
+           
+            
+        
         </form>
     </body>
 </html>

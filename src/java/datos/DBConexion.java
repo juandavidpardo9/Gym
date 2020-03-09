@@ -17,7 +17,7 @@ import java.sql.*;
 public class DBConexion {
     static String bd = "Gimnasio";
     static String login = "root";
-    static String password = "mysql2019";
+    static String password = "1234";
     static String url = "jdbc:mysql://localhost/"+bd;
     static String mensaje = "";
     

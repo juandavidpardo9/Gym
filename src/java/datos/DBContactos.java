@@ -54,7 +54,7 @@ public class DBContactos {
 
     public void insertarContacto(TipoDeCliente c) {
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into datos (Nombre, "
+            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into Datos (Nombre, "
                    
                     + " Edad,"
                     + " Peso,"
@@ -100,7 +100,7 @@ public class DBContactos {
     public void borrarContacto(TipoDeCliente c) {
 
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("delete from datos "
+            PreparedStatement pstm = cn.getConexion().prepareStatement("delete from Datos "
                     + " where id = ?");
 
             pstm.setInt(1, c.getId());

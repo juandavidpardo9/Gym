@@ -14,7 +14,7 @@
         <link href="./Estilos/Estilo.css" rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <form id="frmInsertarContacto" class="box" action="Servidor" method="POST">
+        <form id="frmInsertarContacto" class="box" action="InsertarContacto" method="POST">
         
             
                <h1>Completa los datos</h1>
@@ -26,7 +26,7 @@
                 
                <input step="any" type="text" id="Altura" name="Altura" placeholder="Altura(Mts)">           
           
-               <input type="submit" value="Evaluar" onclick="validar(); " >
+               <input type="submit" value="Evaluar" onclick="validar();"  >
            
             
         

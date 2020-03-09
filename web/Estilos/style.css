@@ -20,10 +20,16 @@ font-family: 'Poppins',sans-serif;
     grid-template-rows: auto;
     grid-gap: 0 40px;
 }
+.box  .content th{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    align:center;
+}
 .container .box
 {
     position: relative;
-    height: 400px;
+    height: 800px;
     background: #060c21;
     display: flex;
     justify-content: center;
@@ -145,3 +151,13 @@ transform: translateY(40px);
   color: #000;
   background: #fff;
 }
+ .box .content input {
+    border: 0;
+    background:#060c21;
+    color: white;
+    font-size: 16px;
+    
+  }
+  .sinborde {
+   border: 0;
+ }

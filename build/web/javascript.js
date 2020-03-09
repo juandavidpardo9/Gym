@@ -14,7 +14,7 @@ function getVarsUrl(){
 function validar(){
 
 		
-		var n1 = document.getElementsByName("Nombres")[0].value;
+		var n1 = document.getElementsByName("Nombre")[0].value;
 		var n2 = document.getElementsByName("Edad")[0].value;
 		var n3 = document.getElementsByName("Peso")[0].value;
 		var a1 = document.getElementsByName("Altura")[0].value;
@@ -23,7 +23,7 @@ function validar(){
 		var expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;		
 
 		if ((n1 == "") ||(n2 == "") ||(n3 == "") ||(a1 == "") ) {  //COMPRUEBA CAMPOS VACIOS
-			alert("Los campos no pueden quedar vacios");
+			alert("Llene los campos correctamente");
 			return false;
 		}
 

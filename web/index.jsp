@@ -13,23 +13,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Agenda web</title>
+        <title>Gimnasio</title>
         <script src='validar.jsp' language='JavaScript1.2'></script>
-        <link href='diseno.css' rel='stylesheet' type='text/css'>
+        <link href="./Estilos/style.css" rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <h1>Clientes</h1>
-        <table>
+        
+        <div class="container">
+        <div class="box">
+        <div class="content">
+        <table border="1"  style="margin: 0 auto;">
+            <h3 align="center">Clientes</h3>
             <tr>
-                <th>codigo</th><th>nombre</th><th>Edad</th><th>Peso</th><th>Altura</th><th>Acciones</th>
+                <th>Codigo</th><th>Nombre</th><th>Edad</th><th>Peso</th><th>Altura</th><th>Acciones</th>
             </tr>
                 <% while (Datos.next()){ %>
                     <tr>
-                        <td><%= Datos.getString("id") %></td>
-                        <td><%= Datos.getString("Nombre") %></td>
-                        <td><%= Datos.getString("Edad") %></td>
-                        <td><%= Datos.getString("Peso") %></td>
-                        <td><%= Datos.getString("Altura") %></td>
+                        <td><p><%= Datos.getString("id") %></p></td>
+                        <td><p><%= Datos.getString("Nombre") %></p></td>
+                        <td><p><%= Datos.getString("Edad") %></p></td>
+                        <td><p><%= Datos.getString("Peso") %></p></td>
+                        <td><p><%= Datos.getString("Altura") %></p></td>
                         <td class="links">
                             <a href="CargarContacto?op=edit&item=<%= Datos.getString("id") %>">Editar</a>
                             <a href="CargarContacto?op=delete&item=<%= Datos.getString("id") %>">Borrar</a>
@@ -37,7 +41,7 @@
                     </tr>
                 <% }%>
                 <tr>
-                    <td colspan="5" class="links"><a href="insertar_contacto.jsp">Agregar</a></td>
+                    <td colspan="20" class="links"><a align="center"  href="insertar_contacto.jsp">Agregar</a></td>
             </tr>
         </table>
     </body>

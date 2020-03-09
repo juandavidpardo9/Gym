@@ -1,25 +1,48 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<%-- 
+    Document   : index
+    Created on : 10/12/2011, 06:25:32 PM
+    Author     : alejandro
+--%>
 
+<%@page import="java.util.List"%>
+<%@page import="Logica.TipoDeCliente"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<% ResultSet Datos = (ResultSet)session.getAttribute("Datos"); %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gimnasio</title>
-        <link rel="stylesheet" href="./Estilos/Estilo.css">
+        <script src='validar.jsp' language='JavaScript1.2'></script>
+        <link href="./Estilos/style.css" rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <script src="javascript.js"></script>
-        <form class="box" method="get" >
-
-            <h1>Completa los datos</h1>
-		<input type="text" name="Nombre" id="Nombre" placeholder="Nombre"></input>
-		
-		<input type="number" name="Edad" id="Edad" placeholder="    Edad" min="0" max="100"></input>
-                
-		<input step="any" type="text" name="Peso" id="Peso" placeholder="Peso(Kg)" ></input>
-                <input step="any" type="text" name="Altura" id="Altura" placeholder="Altura(Mts)" ></input>
-                <input type="submit" value="Evaluar" onclick="return validar()" href="insertar_contacto.jsp">
-        </form>      
+        
+        <div class="container">
+        <div class="box">
+        <div class="content">
+        <table border="1"  style="margin: 0 auto;">
+            <h3 align="center">Clientes</h3>
+            <tr>
+                <th>Codigo</th><th>Nombre</th><th>Edad</th><th>Peso</th><th>Altura</th><th>Acciones</th>
+            </tr>
+                <% while (Datos.next()){ %>
+                    <tr>
+                        <td><p><%= Datos.getString("id") %></p></td>
+                        <td><p><%= Datos.getString("Nombre") %></p></td>
+                        <td><p><%= Datos.getString("Edad") %></p></td>
+                        <td><p><%= Datos.getString("Peso") %></p></td>
+                        <td><p><%= Datos.getString("Altura") %></p></td>
+                        <td class="links">
+                            <a href="CargarContacto?op=edit&item=<%= Datos.getString("id") %>">Editar</a>
+                            <a href="CargarContacto?op=delete&item=<%= Datos.getString("id") %>">Borrar</a>
+                        </td>
+                    </tr>
+                <% }%>
+                <tr>
+                    <td colspan="20" class="links"><a align="center"  href="insertar_contacto.jsp">Agregar</a></td>
+            </tr>
+        </table>
     </body>
 </html>
